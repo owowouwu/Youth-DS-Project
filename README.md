@@ -3,8 +3,6 @@
 ## Authors
 Steven Nguyen, 
 
-Jonathan Huynh,
-
 Lina Zhu,
 
 Sen Turner,  
