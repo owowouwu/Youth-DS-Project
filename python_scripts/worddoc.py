@@ -3,7 +3,7 @@
 import pandas as pd
 from docx import Document
 
-tsdr = Document('./raw_data/TSDR_2018-_Supplementary_Data_Report.docx')
+tsdr = Document('../raw_data/TSDR_2018-_Supplementary_Data_Report.docx')
 
 # processes a table in the TSDR data set and returns it as a dictionary
 def tsdrTable(n):
@@ -31,4 +31,4 @@ df = df.replace('<5', '2.5')
 ## make data numeric 
 df = df.apply(lambda x: x.str.replace(',', ''), axis = 1).apply(pd.to_numeric)
 
-df.to_csv('./wrangled/tsdr.csv')
+df.to_csv('../wrangled/tsdr.csv')
