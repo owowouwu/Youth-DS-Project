@@ -1,1 +1,3 @@
 *.gdoc
+.ipynb_checkpoints/
+.spyproject/
