@@ -9,5 +9,6 @@ df = df.rename(columns={'Unnamed: 0': 'LGA', 'Persons': 'Depression Rate'})
 df['LGA'] = df['LGA'].replace('\([a-zA-Z]*\)','', regex = True)
 
 df = df.set_index('LGA')
+df = df.drop('Victoria')
 
 df.to_csv('../wrangled/depression.csv')
