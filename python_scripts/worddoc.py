@@ -30,9 +30,10 @@ df = df.dropna()
 df = df.replace('<5', '2.5')
 ## make data numeric 
 df = df.apply(lambda x: x.str.replace(',', ''), axis = 1).apply(pd.to_numeric)
-df['tsRatio'] = (df['psGovTeachers'] + df['psCTeachers'] + df['ssGovTeachers'] +
+df['tsRatio'] = (df['psGovTeachers'] + df['ssGovTeachers'] +
                  df['ssCTeachers']) / (df['psStudents'] + df['ssStudents'])
 
 df = df.sort_index()
 
 df.to_csv('../wrangled/tsdr.csv')
+df['tsRatio'].to_csv('../wrangled/tsratio.csv')
