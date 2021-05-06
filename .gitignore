@@ -1,3 +1,4 @@
 *.gdoc
 .ipynb_checkpoints/
 .spyproject/
+desktop.ini
