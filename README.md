@@ -13,7 +13,7 @@ blah - talk about research proposal
 
 ## Explanation of Raw Data and Wrangled Data Files
 
-Data in `./raw_data` consists purely of data that was pulled from the sources listed below, whereas data files in `./wrangled` consists of files that were produced manually or from scripts. Some files are named `X_raw.xlsx`. These were files that were created manually by copying tables in Excel, and are processed further in the scripts - those without `_raw` are more or less the final form which the data analysis scripts we run use.
+Data in `./raw_data` consists purely of data that was pulled from the sources listed below, whereas data files in `./wrangled` consists of files that were produced manually or from scripts. Some files are named `X_raw.xlsx`. These were files that were created manually by copying tables in Excel, and are processed further in the scripts - those without `_raw` are the final form which the data analysis scripts we run use.
 
 ### Data Sources
 * AEDC - Australian Early Development Census
