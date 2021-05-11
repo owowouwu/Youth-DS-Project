@@ -9,7 +9,7 @@ blah - talk about research proposal
 
 ## Dependencies
 
-`pandas`, `numpy`, `python-docx`
+`pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`
 
 ## Explanation of Raw Data and Wrangled Data Files
 
