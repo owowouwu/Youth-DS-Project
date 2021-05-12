@@ -11,8 +11,11 @@ sheet - some excel files have multiple sheets, we choose one
 import pandas as pd
 import numpy as np
 
-def vcamstable(factor, year, sheet = 0):
-    path = './raw_data/VCAMS_'+factor+'.xlsx'
+def p2f(x):
+    return (x.strip('%'))/100
+
+def vcamsLGA(factor, year, sheet = 0):
+    path = '../raw_data/VCAMS_'+factor+'.xlsx'
     df = pd.read_excel(path, sheet_name=sheet)
     # remove unnamed rows
     df = df.loc[:, ~df.columns.str.match('Unnamed')]
@@ -26,4 +29,18 @@ def vcamstable(factor, year, sheet = 0):
     df['Indicator'] = pd.to_numeric(df['Indicator'])
     df = df.drop(['Numerator', 'Denominator', 'Year'], axis =1).rename({'Indicator': factor}, axis = 1)
     return df
+
+def vcamsDHS(name, year, sheet = 0):
+    path = '../raw_data/VCAMS_'+name+'.xlsx'
+    df = pd.read_excel(path, sheet_name=sheet)
+    df = df.loc[:, ~df.columns.str.match('Unnamed')]
+    df = df[~df['DHS AREA'].str.contains('Victoria')]
+    df['DHS AREA'] = df['DHS AREA'].replace('\([a-zA-Z]*\)', '', regex=True)
+    df['DHS AREA'] = df['DHS AREA'].str.strip()
+    df = df.drop(['RSE', 'Year'], axis=1)
+    df = df.set_index('DHS AREA')
+    df['Indicator'] = pd.to_numeric(df['Indicator'], errors='ignore')
+    df = df.rename({'Indicator': name})
+    return df
+
 
