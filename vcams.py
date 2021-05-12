@@ -14,11 +14,10 @@ import numpy as np
 def p2f(x):
     return (x.strip('%'))/100
 
-def vcamsLGA(factor, year, sheet = 0):
-    path = '../raw_data/VCAMS_'+factor+'.xlsx'
+def LGA(factor, year, sheet = 0):
+    path = './raw_data/vcamsLGA/VCAMS_'+factor+'.xlsx'
     df = pd.read_excel(path, sheet_name=sheet)
-    # remove unnamed rows
-    df = df.loc[:, ~df.columns.str.match('Unnamed')]
+    df = df[['Year', 'LGA', 'Indicator']]
     # remove aggregates (victoria)
     df = df[~df['LGA'].str.contains('Victoria')]
     df = df[df['Year'] == year]
@@ -27,20 +26,22 @@ def vcamsLGA(factor, year, sheet = 0):
     df = df.set_index('LGA')
     df.loc[df['Indicator'] == 'NDP'] = np.nan
     df['Indicator'] = pd.to_numeric(df['Indicator'])
-    df = df.drop(['Numerator', 'Denominator', 'Year'], axis =1).rename({'Indicator': factor}, axis = 1)
+    df = df.rename({'Indicator': factor}, axis = 1)
+    df= df.drop('Year', axis=1)
     return df
 
-def vcamsDHS(name, year, sheet = 0):
-    path = '../raw_data/VCAMS_'+name+'.xlsx'
+def DHS(name, year=2014, sheet = 0):
+    path = './raw_data/vcamsDHS/VCAMS_'+name+'.xlsx'
     df = pd.read_excel(path, sheet_name=sheet)
+    df = df[df['Year'] == year]
     df = df.loc[:, ~df.columns.str.match('Unnamed')]
     df = df[~df['DHS AREA'].str.contains('Victoria')]
-    df['DHS AREA'] = df['DHS AREA'].replace('\([a-zA-Z]*\)', '', regex=True)
+    df['DHS AREA'] = df['DHS AREA'].replace('Area', '', regex=True)
     df['DHS AREA'] = df['DHS AREA'].str.strip()
     df = df.drop(['RSE', 'Year'], axis=1)
     df = df.set_index('DHS AREA')
+    df.loc[df['Indicator'] == 'NDP'] = np.nan
     df['Indicator'] = pd.to_numeric(df['Indicator'], errors='ignore')
-    df = df.rename({'Indicator': name})
+    df = df.rename(columns={'Indicator': name})
     return df
-
 

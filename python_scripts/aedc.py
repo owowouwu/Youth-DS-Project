@@ -8,9 +8,12 @@ import pandas as pd
 
 df = pd.read_excel('../wrangled/AEDC_raw.xlsx')
 df['LGA'] =  df['LGA'].replace('\([a-zA-Z.]*\)','', regex = True)
+df = df.loc[:, ~df.columns.str.match('Unnamed')]
 df = df.dropna()
 df['LGA'] = df['LGA'].str.strip()
 df = df.set_index('LGA')
+
 # dropped here to remove incomplete data
+
 df = df.drop('Queenscliffe')
 df.to_csv('../wrangled/AEDC.csv')
