@@ -7,9 +7,9 @@ Steven Nguyen (1081716), Lina Zhu, Sen Turner
 
 blah - talk about research proposal
 
-## Dependencies
+## Package Dependencies
 
-`pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`
+`pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`
 
 ## Explanation of Raw Data and Wrangled Data Files
 
@@ -24,6 +24,7 @@ Data in `./raw_data` consists purely of data that was pulled from the sources li
 * VCAMS - Victorian Child and Adolescent Monitoring System
 * TSDR - Teacher Supply and Demand Report
 
+#### VCAMS Indicators Used
 
 
 
