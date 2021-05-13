@@ -2,3 +2,7 @@ behavourial 2011
 bullying 2011
 connectedness 2011
 familystress 2011
+childabuse 2009
+outofhome 2011
+yr12completion 2011
+youngUnemployed 2011
