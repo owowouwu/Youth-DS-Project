@@ -38,6 +38,8 @@ def DHS(name, year=2014, sheet = 0):
     df = df[~df['DHS AREA'].str.contains('Victoria')]
     df['DHS AREA'] = df['DHS AREA'].replace('Area', '', regex=True)
     df['DHS AREA'] = df['DHS AREA'].str.strip()
+    # need to rename to more recent name
+    df.loc[df['DHS AREA'] == 'Western District'] = 'Wimmera South West'
     df = df.drop(['RSE', 'Year'], axis=1)
     df = df.set_index('DHS AREA')
     df.loc[df['Indicator'] == 'NDP'] = np.nan
