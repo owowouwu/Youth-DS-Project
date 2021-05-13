@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.feature_selection import mutual_info_regression
+import numpy as np
 
 
 # LGA areas
@@ -13,5 +14,4 @@ dep_vars = df.columns.difference(indep_var).to_list()
 #print(mutual_info_regression(df[indep_var], df[dep_vars[1]]))
 
 for var in dep_vars:
-    print((var, float(mutual_info_regression(df[indep_var], df[var]))))
-    
+    print((var, float(mutual_info_regression(df[indep_var], df[var])), np.corrcoef(list(df[indep_var[0]]), df[var])[0,1]))
