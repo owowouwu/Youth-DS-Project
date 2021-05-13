@@ -18,5 +18,3 @@ miDf = pd.DataFrame(columns = df.columns)
 for var0 in df.columns:
     mi_list = [float(mutual_info_regression(df[[var0]], df[var])) for var in df.columns]
     miDf[var0] = mi_list
-
-print(miDf.head())
