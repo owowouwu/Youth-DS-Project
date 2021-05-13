@@ -26,7 +26,17 @@ Data in `./raw_data` consists purely of data that was pulled from the sources li
 
 #### VCAMS Indicators Used
 
+##### LGA
 
+* `behavourial` - Proportion of children whose parents report behavourial difficulties at school entry.
+* `bullying` - Proportion of young people who report being bullied 
+* `childabuse` - Child abuse substantiations per 1000.
+* `connectedness` - Proportion of young people who feel connected with their school.
+* `familystress` - Proportion of young people whose family report a high level of stress.
+* `outofhome` - Number of children out of home per LGA.
+* `youngUnemployed` - Unemployment rate in the first 6 months for school leavers.
+* `year12completion` - Rate of year 12 completion in an area.
 
+##### DHS AREA
 
 
