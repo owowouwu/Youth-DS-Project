@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel('../wrangled/depression.xlsx', engine = 'openpyxl')
+df = pd.read_excel('../wrangled/depression_raw.xlsx', engine = 'openpyxl')
 
 df = df.drop([0,1])
 df = df[['Unnamed: 0','Persons']]

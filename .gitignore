@@ -2,3 +2,5 @@
 .ipynb_checkpoints/
 .spyproject/
 desktop.ini
+.DS_Store
+__pycache__/

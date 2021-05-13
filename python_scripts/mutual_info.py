@@ -15,6 +15,5 @@ dep_vars = df.columns.difference(indep_var).to_list()
 
 #print(mutual_info_regression(df[indep_var], df[dep_vars[1]]))
 
-
 for var in dep_vars:
     print((var, float(mutual_info_regression(df[indep_var], df[var]))))
