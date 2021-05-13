@@ -39,11 +39,10 @@ def DHS(name, year=2014, sheet = 0):
     df['DHS AREA'] = df['DHS AREA'].replace('Area', '', regex=True)
     df['DHS AREA'] = df['DHS AREA'].str.strip()
     # need to rename to more recent name
-    df.loc[df['DHS AREA'] == 'Western District'] = 'Wimmera South West'
     df = df.drop(['RSE', 'Year'], axis=1)
     df = df.set_index('DHS AREA')
     df.loc[df['Indicator'] == 'NDP'] = np.nan
     df['Indicator'] = pd.to_numeric(df['Indicator'], errors='ignore')
-    df = df.rename(columns={'Indicator': name})
+    df = df.rename(columns={'Indicator': name}, index = {'Western District': 'Wimmera South West'})
     return df
 
