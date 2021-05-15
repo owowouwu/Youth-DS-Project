@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.read_csv("../wrangled/LGA_data.csv.csv")
 
-ascCols=['connectedness', 'yr12completion']
+ascCols=['connectedness', 'yr12completion'] # higher the better cols
 df[ascCols].rank()
 df.columns.difference(ascCols).rank()
 # normalise
