@@ -12,8 +12,8 @@ import seaborn as sns
 import geopandas as gpd
 
 std_scaler = StandardScaler()
-df = pd.read_csv("../wrangled/LGA_data.csv", index_col = "LGA")
-vicLGA = gpd.read_file('../shapefiles/VIC_LGA_POLYGON_SHP.shp')
+df = pd.read_csv("./wrangled/LGA_data.csv", index_col = "LGA")
+vicLGA = gpd.read_file('./shapefiles/VIC_LGA_POLYGON_SHP.shp')
 zScores = pd.DataFrame(std_scaler.fit_transform(df), columns = df.columns, index = df.index)
 
 # higher is better
@@ -38,12 +38,12 @@ plottingLGA.plot(column = 'overallZ', legend=True,cmap='OrRd', legend_kwds={'lab
 plt.xticks([])
 plt.yticks([])
 plt.box(False)
-plt.savefig('../plots/scoremap.png')
+plt.savefig('./plots/scoremap.png')
 
 plt.figure(figsize=(20,12))
 zScores = zScores.sort_values(by = 'overallZ', ascending=False)
 plt.bar(zScores.index, zScores['overallZ'])
 plt.xticks(np.arange(len(zScores.index)), zScores.index, rotation = 80)
 plt.ylabel("Youth Liveability Score")
-plt.savefig('../plots/scorehistogram.png')
+plt.savefig('./plots/scorehistogram.png')
 
