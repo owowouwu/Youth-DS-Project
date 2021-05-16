@@ -5,11 +5,12 @@ Created on Sun May 16 21:13:56 2021
 @author: Steven
 """
 from sklearn.preprocessing import StandardScaler
+from scipy.stats import linregress
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import geopandas as gpd
+
 
 std_scaler = StandardScaler()
 df = pd.read_csv("./wrangled/LGA_data.csv", index_col = "LGA")
@@ -31,6 +32,7 @@ zScores = zScores.drop('tsRatio', axis=1)
 zScores['overallZ'] = zScores.mean(axis=1)
 zScores.index = zScores.index.str.upper()
 
+
 plt.figure(figsize = (20,20))
 plottingLGA = vicLGA.merge(zScores, left_on = 'ABB_NAME', right_on = 'LGA')
 plottingLGA.plot(column = 'overallZ', legend=True,cmap='OrRd', legend_kwds={'label': "Youth Liveability Score"})
@@ -46,4 +48,10 @@ plt.bar(zScores.index, zScores['overallZ'])
 plt.xticks(np.arange(len(zScores.index)), zScores.index, rotation = 80)
 plt.ylabel("Youth Liveability Score")
 plt.savefig('./plots/scorehistogram.png')
+
+plt.figure()
+plt.scatter(zScores['overallZ'], df['Depression Rate'])
+plt.xlabel("Overall Youth Liveability Index")
+plt.ylabel("Depression Rate")
+plt.savefig('./plots/overallscatter.png')
 
