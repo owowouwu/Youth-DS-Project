@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -13,20 +12,20 @@ lgaData = pd.read_csv("./wrangled/LGA_data.csv", index_col = "LGA")
 vicLGA = gpd.read_file('./shapefiles/VIC_LGA_POLYGON_SHP.shp')
 vicDHS = gpd.read_file('./shapefiles/VIC_DHS_POLYGON_SHP.shp')
 
+plt.figure(figsize = (20,20))
 for i in lgaData.columns[1:]:
-    plt.figure()
     plt.scatter(lgaData[i], lgaData['Depression Rate'])
     plt.ylabel('Depression Rate')
     plt.xlabel(i)
     plt.savefig('./plots/depression/'+i+'.png')
 
 # aedc pair plots
-plt.figure(figsize = (20,20))
+plt.clf()
 sns.pairplot(lgaData[['aedcSocial', 'aedcLanguage', 'aedcEmotion', 'aedcComm', 'aedcHealth']])
 plt.savefig('./plots/aedc.png')
 
 # vic depression map
-plt.figure()
+plt.clf()
 lgaData.index = lgaData.index.str.upper()
 plottingLGA = vicLGA.merge(lgaData[['Depression Rate']], left_on = 'ABB_NAME', right_on = 'LGA')
 plt.figure(figsize = (20,20))
@@ -41,14 +40,14 @@ plt.savefig('./plots/depressionMap.png')
 for_corr = lgaData.copy()
 for_corr = for_corr.dropna()
 cf = for_corr.corr(method='pearson')
-plt.figure()
+plt.clf()
 sns.heatmap(cf)
 plt.savefig('./plots/correlationMap.png')
 
 # parallel coordinate plots
 normalized_LGA=(lgaData-lgaData.min())/(lgaData.max()-lgaData.min())
 normalized_LGA['bins'] = pd.cut(normalized_LGA['Depression Rate'], 3, labels=["low", "medium", "high"])
-plt.figure(figsize=(20,20))
+plt.clf()
 parallel_coordinates(normalized_LGA, 'bins',
                      alpha=0.2, color=["b","y",'r'])
 plt.xticks(rotation=45)

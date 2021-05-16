@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-procceses a VCAMS excel spreadsheet
-
-factor - the name of the factor (given the filename looks like VCAMS_factor.xlsx)
-year - the year of interest
-sheet - some excel files have multiple sheets, we choose one
-
+module with all functions
 """
 
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import StandardScaler
+std_scaler = StandardScaler()
 
 def p2f(x):
     return (x.strip('%'))/100
@@ -46,3 +43,12 @@ def DHS(name, year=2014, sheet = 0):
     df = df.rename(columns={'Indicator': name}, index = {'Western District': 'Wimmera South West'})
     return df
 
+def calculateZ(df, asec):
+    zScores = pd.DataFrame(std_scaler.fit_transform(df), columns = df.columns, index = df.index)
+    # lower is better
+    desc = zScores.columns.difference(asec)
+    # for the features for which the lower the score, the better, we append a negative
+    zScores[desc] = -zScores[desc]
+    # calculate an overall score by taking an avergae
+    zScores['overallZ'] = zScores.mean(axis=1)
+    return zScores
