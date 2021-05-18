@@ -20,6 +20,24 @@ for i in lgaData.columns[1:]:
     plt.savefig('./plots/depression/'+i+'.png')
     plt.clf()
 
+plt.clf()
+plt.scatter(dhsData['cyberbullying'],dhsData['psychological'])
+plt.xlabel('Cyberbullying')
+plt.ylabel('Psychological Stress')
+plt.savefig("./plots/cyberPsych.png")
+
+plt.clf()
+plt.scatter(dhsData['physicalActivity'],dhsData['mental_health_access'])
+plt.xlabel('Level of Physical Activity')
+plt.ylabel('Level of mental health access')
+plt.savefig('./plots/mentalaccess.png')
+
+plt.clf()
+plt.scatter(dhsData['Depression Rate'],dhsData['cyberbullying'])
+plt.xlabel('Depression Rate')
+plt.ylabel('proportion of Young People that reported being Cyberbullied')
+plt.savefig('./plots/cyberDepression.png')
+
 # aedc pair plots
 plt.clf()
 sns.pairplot(lgaData[['aedcSocial', 'aedcLanguage', 'aedcEmotion', 'aedcComm', 'aedcHealth']])
