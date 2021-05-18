@@ -12,12 +12,13 @@ lgaData = pd.read_csv("./wrangled/LGA_data.csv", index_col = "LGA")
 vicLGA = gpd.read_file('./shapefiles/VIC_LGA_POLYGON_SHP.shp')
 vicDHS = gpd.read_file('./shapefiles/VIC_DHS_POLYGON_SHP.shp')
 
-plt.figure(figsize = (20,20))
+plt.figure()
 for i in lgaData.columns[1:]:
     plt.scatter(lgaData[i], lgaData['Depression Rate'])
     plt.ylabel('Depression Rate')
     plt.xlabel(i)
     plt.savefig('./plots/depression/'+i+'.png')
+    plt.clf()
 
 # aedc pair plots
 plt.clf()
@@ -43,6 +44,22 @@ cf = for_corr.corr(method='pearson')
 plt.figure(figsize = (12,12))
 sns.heatmap(cf)
 plt.savefig('./plots/correlationMap.png')
+
+# midf heatmap
+
+plt.clf()
+lgaDropNa = lgaData.dropna()
+miDf = pd.DataFrame()
+miDf = pd.DataFrame(columns = lgaData.columns)
+
+for var0 in lgaData.columns:
+    mi_list = [float(mi_reg(lgaDropNa[[var0]], lgaDropNa[var])) for var in lgaData.columns]
+    miDf[var0] = mi_list
+miDf.index = miDf.columns
+
+normalized_miDf=(miDf-miDf.min())/(miDf.max()-miDf.min())
+sns.heatmap(normalized_miDf)
+plt.savefig('./plots/midfMap.png')
 
 # parallel coordinate plots
 normalized_LGA=(lgaData-lgaData.min())/(lgaData.max()-lgaData.min())
