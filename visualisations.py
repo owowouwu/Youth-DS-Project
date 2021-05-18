@@ -75,5 +75,4 @@ normalized_LGA = normalized_LGA[['bullying','connectedness','familystress', 'bin
 plt.clf()
 parallel_coordinates(normalized_LGA, 'bins',
                      alpha=0.2, color=["b","y",'r'])
-plt.show()
 plt.savefig('./plots/parallel2.png')
