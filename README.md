@@ -5,11 +5,19 @@ Steven Nguyen (1081716), Lina Zhu, Sen Turner
 
 ## Overview
 
-blah - talk about research proposal
+The prevention and treatment of depression and mental health issues is increasing its significance in contemporary society. This raises this question: how do different childhood developmental factors impact an individual’s susceptibility to depression? By asking this question we aim to identify and isolate external childhood developmental factors that may impact on the health and wellbeing of our communities. Our focus on childhood and youth development also allows us to understand the liveability of Victorian communities, as we will potentially be able to identify areas that need improved living conditions for young people. 
+
+In this project we use a variety of data to identify links between depression rate experiences during school.
 
 ## Package Dependencies
 
 `pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`
+
+## Usage
+
+* `step1.py` processes raw documents into readable csv formats and places them into `./wrangled`.
+* `step2.py` processes VCAMs data (see below) and combines all processed documents into two CSVs, `LGA_data.csv` and `DHS_data.csv`.
+* `visualisations.py` produces all visualisations.
 
 ## Explanation of Raw Data and Wrangled Data Files
 
