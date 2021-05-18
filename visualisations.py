@@ -60,7 +60,7 @@ for_corr = lgaData.copy()
 for_corr = for_corr.dropna()
 cf = for_corr.corr(method='pearson')
 plt.figure(figsize = (12,12))
-sns.heatmap(cf)
+sns.heatmap(cf, cmap = "viridis")
 plt.savefig('./plots/correlationMap.png')
 
 # midf heatmap
@@ -76,7 +76,7 @@ for var0 in lgaData.columns:
 miDf.index = miDf.columns
 
 normalized_miDf=(miDf-miDf.min())/(miDf.max()-miDf.min())
-sns.heatmap(normalized_miDf)
+sns.heatmap(normalized_miDf, cmap = "viridis")
 plt.savefig('./plots/midfMap.png')
 
 # parallel coordinate plots
