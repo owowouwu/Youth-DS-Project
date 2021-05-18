@@ -48,7 +48,7 @@ plt.clf()
 lgaData.index = lgaData.index.str.upper()
 plottingLGA = vicLGA.merge(lgaData[['Depression Rate']], left_on = 'ABB_NAME', right_on = 'LGA')
 plt.figure(figsize = (20,20))
-plottingLGA.plot(column = 'Depression Rate', legend=True,cmap='OrRd', legend_kwds={'label': "Depression Rate"})
+plottingLGA.plot(column = 'Depression Rate', legend=True,cmap='viridis', legend_kwds={'label': "Depression Rate"})
 # removes tick marks
 plt.xticks([])
 plt.yticks([])
