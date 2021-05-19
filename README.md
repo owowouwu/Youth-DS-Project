@@ -8,7 +8,7 @@ In this project we use a variety of data to identify links between depression ra
 
 ## Dependencies
 
-`pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`
+`pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`, `seaborn`
 
 ## Usage
 
