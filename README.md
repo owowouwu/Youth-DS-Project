@@ -15,6 +15,7 @@ In this project we use a variety of data to identify links between depression ra
 * `step1.py` processes raw documents into readable csv formats and places them into `./wrangled`.
 * `step2.py` processes VCAMs data (see below) and combines all processed documents into two CSVs, `LGA_data.csv` and `DHS_data.csv`.
 * `visualisations.py` produces all visualisations.
+* `zscores.py` produces our liveability metric and its relevant plots.
 
 ## Explanation of Raw Data and Wrangled Data Files
 
