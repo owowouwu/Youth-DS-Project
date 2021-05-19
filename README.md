@@ -1,8 +1,5 @@
 # COMP20008 Assignment 2 - Data Science Project
 
-## Authors
-Steven Nguyen (1081716), Lina Zhu, Sen Turner 
-
 ## Overview
 
 The prevention and treatment of depression and mental health issues is increasing its significance in contemporary society. This raises this question: how do different childhood developmental factors impact an individual’s susceptibility to depression? By asking this question we aim to identify and isolate external childhood developmental factors that may impact on the health and wellbeing of our communities. Our focus on childhood and youth development also allows us to understand the liveability of Victorian communities, as we will potentially be able to identify areas that need improved living conditions for young people. 
@@ -60,7 +57,8 @@ Data in `./raw_data` consists purely of data that was pulled from the sources li
 * `qolSatisfaction` - Proportion of young people who feel satisfied with their quality of life.
 * `physicalAcitivity` - Proportion of young people who do the recommended amount of physical activity every day
 
-
+## Contributors
+Steven Nguyen (1081716), Lina Zhu, Sen Turner 
 
 
 
