@@ -17,9 +17,8 @@ In this project we use a variety of data to identify links between depression ra
 * `visualisations.py` produces all visualisations.
 * `zscores.py` produces our liveability metric and its relevant plots.
 
-## Explanation of Raw Data and Wrangled Data Files
+## Data Sources
 
-### Data Sources
 * AEDC - Australian Early Development Census. This gives a range of developmental indices for young children, with factors ranging from their development in language, emotions, physical ability, and more.
 * VPHS - Victorian Public Health Survey.
 
