@@ -6,20 +6,18 @@ The prevention and treatment of depression and mental health issues is increasin
 
 In this project we use a variety of data to identify links between depression rate experiences during school.
 
-## Package Dependencies
+## Dependencies
 
 `pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`
 
 ## Usage
 
-* `step1.py` processes raw documents into readable csv formats and places them into `./wrangled`.
+* `step1.py` processes raw documents from `./raw_data` into readable csv formats and places them into `./wrangled`.
 * `step2.py` processes VCAMs data (see below) and combines all processed documents into two CSVs, `LGA_data.csv` and `DHS_data.csv`.
 * `visualisations.py` produces all visualisations.
 * `zscores.py` produces our liveability metric and its relevant plots.
 
 ## Explanation of Raw Data and Wrangled Data Files
-
-Data in `./raw_data` consists purely of data that was pulled from the sources listed below, whereas data files in `./wrangled` consists of files that were produced manually or from scripts. Some files are named `X_raw.xlsx`. These were files that were created manually by copying tables in Excel, and are processed further in the scripts - those without `_raw` are the final form which the data analysis scripts we run use.
 
 ### Data Sources
 * AEDC - Australian Early Development Census. This gives a range of developmental indices for young children, with factors ranging from their development in language, emotions, physical ability, and more.
