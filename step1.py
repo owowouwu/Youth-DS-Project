@@ -8,7 +8,7 @@ import pandas as pd
 from docx import Document
 
 # processing the aedc_raw excel file
-aedc = pd.read_excel('./wrangled/AEDC_raw.xlsx')
+aedc = pd.read_excel('./raw_data/AEDC_raw.xlsx')
 aedc['LGA'] =  aedc['LGA'].replace('\([a-zA-Z.]*\)','', regex = True)
 aedc = aedc.loc[:, ~aedc.columns.str.match('Unnamed')]
 aedc = aedc.dropna()
@@ -19,7 +19,7 @@ aedc = aedc.drop('Queenscliffe')
 aedc.to_csv('./wrangled/AEDC.csv')
 
 # processing the depression_raw excel file
-depression = pd.read_excel('./wrangled/depression_raw.xlsx', engine = 'openpyxl')
+depression = pd.read_excel('./raw_data/depression_raw.xlsx', engine = 'openpyxl')
 depression = depression.drop([0,1])
 depression = depression[['Unnamed: 0','Persons']]
 depression = depression.rename(columns={'Unnamed: 0': 'LGA', 'Persons': 'Depression Rate'})
