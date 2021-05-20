@@ -10,6 +10,8 @@ In this project we use a variety of data to identify links between depression ra
 
 `pandas`, `numpy`, `python-docx`, `geopandas` (and dependencies), `matplotlib`, `sklearn`, `seaborn`
 
+`.shp` files for chloropleths are included in `shapefiles`. The code used to produce our visualisations **will not** run without `shapefiles`.
+
 ## Usage
 
 * `step1.py` processes raw documents from `./raw_data` into readable csv formats and places them into `./wrangled`.
