@@ -30,7 +30,7 @@ depression = depression.drop('Victoria')
 depression.to_csv('./wrangled/depression.csv')
 
 # processing teacher supply and demand report
-tsdr = Document('../raw_data/TSDR_2018-_Supplementary_Data_Report.docx')
+tsdr = Document('./raw_data/TSDR_2018-_Supplementary_Data_Report.docx')
 
 # processes a table in the TSDR data set and returns it as a dictionary
 def tsdrTable(n):
@@ -62,5 +62,5 @@ df['tsRatio'] = (df['psGovTeachers'] + df['ssGovTeachers'] +
 
 df = df.sort_index()
 
-df.to_csv('../wrangled/tsdr.csv')
-df['tsRatio'].to_csv('../wrangled/tsratio.csv')
+df.to_csv('./wrangled/tsdr.csv')
+df['tsRatio'].to_csv('./wrangled/tsratio.csv')
