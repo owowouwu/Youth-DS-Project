@@ -17,6 +17,8 @@ In this project we use a variety of data to identify links between depression ra
 * `visualisations.py` produces all visualisations.
 * `minmaxscores.py` produces our liveability metric and its relevant plots.
 
+**note** `VCAMS.py` has functions we use for `step2.py` and the latter will not run without the former.
+
 ## Data Sources
 
 * AEDC - Australian Early Development Census. This gives a range of developmental indices for young children, with factors ranging from their development in language, emotions, physical ability, and more.
