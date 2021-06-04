@@ -60,7 +60,7 @@ In this project we use a variety of data to identify links between depression ra
 * `physicalAcitivity` - Proportion of young people who do the recommended amount of physical activity every day
 
 ## Contributors
-Steven Nguyen (1081716), Lina Zhu, Sen Turner 
+Steven Nguyen, Lina Zhu, Sen Turner 
 
 
 
